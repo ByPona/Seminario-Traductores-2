@@ -40,7 +40,6 @@ class Lexico(object):
         
         self.cadena = self.cadena + " "
         longitud = len(self.cadena)
-        longitud = longitud
 
         while contador<longitud:
 
