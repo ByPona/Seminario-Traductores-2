@@ -1,6 +1,8 @@
 from lexico import Lexico
 
-cadena = Lexico("oeroeroqwerii weqrqwe werwer wewe9999 9 222 2 -=--- = = =")
+entrada = input("Dame la cadena a analizar: ")
+cadena = Lexico(entrada)
+
 print("\nResultado del Analisis Lexico")
 print("\nSimbolo               Tipo")
 print("-------------------------------------")
