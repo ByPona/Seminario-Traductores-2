@@ -307,7 +307,7 @@ if len(lista) < 6:
 
     for n in lista:
         cadena = n.darcadena()
-        if cadena.isalpha() == True:
+        if cadena[0].isalpha() == True or cadena[0].isdigit():
             pila.append(n)
             dstr = str(d)
             objeto = Terminal(d, 500)
@@ -349,7 +349,7 @@ if len(lista) < 6:
 else:
     for n in lista:
         cadena = n.darcadena()
-        if cadena.isalpha() == True:
+        if cadena[0].isalpha() == True or cadena[0].isdigit():
             pila.append(n)
             objeto = Terminal("2", 500)
             pila.append(objeto)
