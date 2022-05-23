@@ -59,6 +59,7 @@ class traduccion_sasm():
                 self.codigo.append('\tMOV WORD [rbp -' + str(self.posicionvar)+'] , '+str(self.valor)+'\n')
                 list_ref.append(refer(self.var, globals()['cont'], self.posicionvar))
                 self.posicionvar +=4
+                
         if self.bandera == 22:
 
             for n in list_ref:
@@ -126,6 +127,8 @@ class traduccion_sasm():
                                     self.codigo.append('\t'+'ADD rax, rdi'+'\n')
                                 elif self.bandera[0]=='*':
                                     self.codigo.append('\t'+'MUL rax, rdi'+'\n')
+                                elif self.bandera[0]=='-':
+                                    self.codigo.append('\t'+'SUB rax, rdi'+'\n')
                                 self.bandera.pop(0)
                                 banderarealizada= 1
                                 vuelta -= 1
@@ -144,6 +147,8 @@ class traduccion_sasm():
                                     self.codigo.append('\t'+'ADD rax, rdi'+'\n')
                                 elif self.bandera[0]=='*':
                                     self.codigo.append('\t'+'MUL rax, rdi'+'\n')
+                                elif self.bandera[0]=='-':
+                                    self.codigo.append('\t'+'SUB rax, rdi'+'\n')
                                 self.bandera.pop(0)
                             except:
                                 pass
@@ -209,6 +214,8 @@ class traduccion_sasm():
                                     self.codigo.append('\t'+'ADD rax, rdi'+'\n')
                                 elif self.bandera[0]=='*':
                                     self.codigo.append('\t'+'MUL rax, rdi'+'\n')
+                                elif self.bandera[0]=='-':
+                                    self.codigo.append('\t'+'SUB rax, rdi'+'\n')
                                 self.bandera.pop(0)
                                 banderarealizada= 1
                                 vuelta -= 1
@@ -227,7 +234,12 @@ class traduccion_sasm():
                                     self.codigo.append('\t'+'ADD rax, rdi'+'\n')
                                 elif self.bandera[0]=='*':
                                     self.codigo.append('\t'+'MUL rax, rdi'+'\n')
+                                elif self.bandera[0]=='-':
+                                    self.codigo.append('\t'+'SUB rax, rdi'+'\n')
+
                                 self.bandera.pop(0)
+                                    
+                                
                             except:
                                 pass
                             
@@ -334,3 +346,4 @@ class traduccion_sasm():
     def __repr__(self):
         aux = ("Variable: "+str(self.var)+ " Contexto: "+str(self.contexto)+ " Pos: "+str(self.pos))
         return aux
+
