@@ -20,5 +20,5 @@ Posteriormente nos mostrara el analizador semantico, el cual nos dice de que sec
 Despues de que nuestra cadena paso todas las pruebas veremos el codigo en ensamblador 
 
 ![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Codigo%20-%20Ensamblador.png)
-1[Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Codigo%20-%20Ensamblador2.png)
+![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Codigo%20-%20Ensamblador2.png)
 
