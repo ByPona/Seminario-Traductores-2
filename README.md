@@ -13,9 +13,9 @@ Seguido de ello nos mostrar el arbol sintactico, que nos ayudara a comprender qu
 
 ![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Arbol%20-%20Sintactico.png)
 
-Posteriormente nos mostrara el analizador sintactico, el cual nos dice de que seccion es cada variable 
+Posteriormente nos mostrara el analizador semantico, el cual nos dice de que seccion es cada variable 
 
-Foto
+![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Semantico.png)
 
 Despues de que nuestra cadena paso todas las pruebas veremos el codigo en ensamblador 
 
