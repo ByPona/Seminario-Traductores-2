@@ -1691,38 +1691,29 @@ class analizador:
         self.continua = True
 
 
-cad = " int resta(int a){\
-        return a - 2;\
-        }\
-        int main(){\
-        int a;\
-        int b;\
-        a = 8;\
-        b = resta(a, b);\
-        print(b)\
-        }"
+entrada = " int resta(int a){return a - 2;}int main(){int a;int b;a = 8;b = resta(a, b);print(b)}"
 
-divcad = cad.split()
-divcad.append("$")
+entrada = entrada.split()
+entrada.append("$")
 actual = 0
-for i in range (len(divcad)):
+for i in range (len(entrada)):
     actual = i
-    cadena = analizador(divcad[i])
+    cadena = analizador(entrada[i])
     cadena.anlexico()
 if globals()['ban_p']!=0:
     list_er_lex.append('Error, falta cerrar parentesis ')
 if globals()['ban_c']!=0:
     list_er_lex.append('Error, falta cerrar corchetes ')
-divcad2 = list()
+list_entrada = list()
 print('\n\t\t\tAnalizador Lexico')
 print('Entrada', f"{'':>9}", 'Tipo', f"{'':>9}", 'Token', f"{'':<9}")
 print("-----------------------------------------------")
 for objlex in list_lex:
     print(objlex.cad, f"{'-':>11}", objlex.tipo, f"{'-':>9}", objlex.pos)
-    divcad2.append(objlex.cad)
-divcad.clear()    
-divcad=divcad2
-auxelimna = (len(divcad)-2)*2
+    list_entrada.append(objlex.cad)
+entrada.clear()    
+entrada=list_entrada
+auxelimna = (len(entrada)-2)*2
 fila = 0
 columna = 0
 accion =0
@@ -1735,11 +1726,9 @@ if len(list_er_lex)!=0:
 else:
     lista_pila.append(buscar_lex("$"))
     lista_pila.append(Estado("0",0,0,0))
-
-    
     rev_regl()
     auxil_regl()
-    cadena.analizadorsintactico(0, auxelimna, divcad)
+    cadena.analizadorsintactico(0, auxelimna, entrada)
 print("\n\n\t\tArbol Sintactico")
 if len(list_er)!=0:
     for obj in list_er:
