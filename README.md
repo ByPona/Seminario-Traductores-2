@@ -1,5 +1,5 @@
 # Seminario-Traductores-2
-Fernando Castro Galan 
+\nFernando Castro Galan 
 Primero ingresamos la cadena para usarla con el analizador Lexico
 
 ![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Cadena.png)
