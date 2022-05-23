@@ -11,7 +11,7 @@ Ahora nos mostrara la lista de los Terminales que nos genera el analizador Lexic
 
 Seguido de ello nos mostrar el arbol sintactico, que nos ayudara a comprender que genera cada pedazo del codigo
 
-Foto
+![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Arbol%20-%20Sintactico.png)
 
 Posteriormente nos mostrara el analizador sintactico, el cual nos dice de que seccion es cada variable 
 
