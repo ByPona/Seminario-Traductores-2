@@ -2,7 +2,7 @@
 Fernando Castro Galan 
 Primero ingresamos la cadena para usarla con el analizador Lexico
 
-Foto
+![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Cadena.png)
 
 Ahora nos mostrara la lista de los Terminales
 
