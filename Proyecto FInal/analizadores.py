@@ -44,6 +44,7 @@ globals()['tipo_ret'] =""
 globals()['v_print']=''
 globals()['ban_print']= 0
 globals()['call_func'] = 0
+globals()['rev_error'] = 0
 
 def rev_regl():
     file = open('compilador.lr', 'r')
@@ -905,7 +906,7 @@ class Expresion(Nodo):
 
     def eliminaSum(self):
         list_term_aux.clear()
-        list_op.append('+')
+        list_op.append(str(lista_pila[-4].cad))
         lista_pila.pop()
         self.data = lista_pila.pop()
         lista_pila.pop()
@@ -1403,21 +1404,21 @@ class analizador:
                 aumento = 2
                 aux = 0
                 if list_lex[-1].tipo== 'Identificador':
-                    if divcad[actual + 1]=='=':
-                        if ';' in divcad[actual + 2]:
+                    if entrada[actual + 1]=='=':
+                        if ';' in entrada[actual + 2]:
                             pass
                         else:
                             aumento +=1
-                            if divcad[actual + aumento] == '+' or divcad[actual + aumento] == '-' or  divcad[actual + aumento] == '*' or divcad[actual + aumento] == '/':
+                            if entrada[actual + aumento] == '+' or entrada[actual + aumento] == '-' or  entrada[actual + aumento] == '*' or entrada[actual + aumento] == '/':
                                 while aux == 0:
-                                    if divcad[actual + aumento] == '+' or divcad[actual + aumento] == '-' or  divcad[actual + aumento] == '*' or divcad[actual + aumento] == '/':
+                                    if entrada[actual + aumento] == '+' or entrada[actual + aumento] == '-' or  entrada[actual + aumento] == '*' or entrada[actual + aumento] == '/':
                                         aumento +=1
-                                        if ';' in divcad[actual + aumento]:
+                                        if ';' in entrada[actual + aumento]:
                                             aux =1
                                             globals()['ban_lex']=0
                                             break
                     
-                                        cadena2 = analizador(divcad[actual + aumento])
+                                        cadena2 = analizador(entrada[actual + aumento])
                                         globals()['ban_lex']=1
                                         cadena2.anlexico()
                                         if list_lex[-1].pos == 0 or list_lex[-1].pos == 1 or list_lex[-1].pos == 2:
@@ -1426,49 +1427,50 @@ class analizador:
                                         else:
                                             aux =1
                                             list_lex.pop()
-                                            list_er_lex.append('Punto y coma faltantes: '+   str(divcad[actual]) + str(divcad[actual + 1]) + str(divcad[actual + 2]))
+                                            list_er_lex.append('Punto y coma faltantes: '+   str(entrada[actual]) + str(entrada[actual + 1]) + str(entrada[actual + 2]))
                                             break
                                     else:
                                         aux =1
                                         list_lex.pop()
-                                        list_er_lex.append('Punto y coma faltantes: '+   str(divcad[actual]) + str(divcad[actual + 1]) + str(divcad[actual + 2]))
+                                        list_er_lex.append('Punto y coma faltantes: '+   str(entrada[actual]) + str(entrada[actual + 1]) + str(entrada[actual + 2]))
                                         break
                             else:
                                 temp = actual +1
                                 error = 0
                                 while True:
-                                    if ');' in divcad[temp]:
+                                    if ');' in entrada[temp]:
                                         error =0
                                         break
-                                    if ')' in divcad[temp]:
+                                    if ')' in entrada[temp]:
                                         error =1
                                         break
                                     else:
                                         temp +=1       
                                 if error ==1:
-                                    list_er_lex.append('Punto y coma faltantes: '+   str(divcad[actual]) + str(divcad[actual + 1]) + str(divcad[actual + 2]))
+                                    list_er_lex.append('Punto y coma faltantes: '+   str(entrada[actual]) + str(entrada[actual + 1]) + str(entrada[actual + 2]))
             else:
                 pass          
 
-    def analizadorsintactico(self, i, auxelimna2, divcad2):
+    def analizadorsintactico(self, i, auxelimna2, entrada2):
         while True:
             for obj in lista_pila:
                 try:
                     pass
                 except:
                     pass
-            if divcad2[i]=='print':
-                globals()['valorprint']= divcad[i+2]
+            if entrada2[i]=='print':
+                globals()['valorprint']= entrada[i+2]
                 globals()['banderaprint']=1
                 
                 i+=4
             fila = lista_pila[-1].pos
             
-            columna = buscar_lex(divcad2[i])
+            columna = buscar_lex(entrada2[i])
             accion = matr_regl[fila][columna.pos]
             accion= Estado(str(accion), accion, accion, accion)
             if accion.estado == 0:
                 print('Error')
+                globals()['rev_error'] = 1
                 break
             elif accion.estado > 0:
                 i+=1
@@ -1531,7 +1533,6 @@ class analizador:
             definicion.eliminaDefVar()
         elif num == 5:                             
             if len(lista_funciones)==0:
-                #print('Vacia')
                 definicion = Definicion('Data')
                 definicion.eliminaDef()
             else:
@@ -1691,7 +1692,18 @@ class analizador:
         self.continua = True
 
 
-entrada = " int a; int resta(int a, int b){ return a - b; } int main(){ int a; int b; a = 8; b = 4; b = resta(a, b); print(b) }"
+entrada = " int a;\
+        int resta(int a, int b){\
+        return a - b;\
+        }\
+        int main(){\
+        int a;\
+        int b;\
+        a = 8;\
+        b = 4;\
+        b = resta(a, b);\
+        print(b)\
+        }"
 
 entrada = entrada.split()
 entrada.append("$")
@@ -1729,6 +1741,7 @@ else:
     rev_regl()
     auxil_regl()
     cadena.analizadorsintactico(0, auxelimna, entrada)
+
 print("\n\n\t\tArbol Sintactico")
 if len(list_er)!=0:
     for obj in list_er:
