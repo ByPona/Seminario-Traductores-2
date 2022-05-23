@@ -5,11 +5,11 @@ Primero ingresamos la cadena para usarla con el analizador Lexico
 
 ![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Cadena.png)
 
-Ahora nos mostrara la lista de los Terminales
+Ahora nos mostrara la lista de los Terminales que nos genera el analizador Lexico
 
-Foto
+![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Lexico.png)
 
-Seguido de ello nos mostrar el arbol sintactico, que nos ayudara a comprender de que es cada variable
+Seguido de ello nos mostrar el arbol sintactico, que nos ayudara a comprender que genera cada pedazo del codigo
 
 Foto
 
