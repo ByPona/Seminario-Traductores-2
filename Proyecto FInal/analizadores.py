@@ -1691,7 +1691,7 @@ class analizador:
         self.continua = True
 
 
-entrada = " int resta(int a){return a - 2;}int main(){int a;int b;a = 8;b = resta(a, b);print(b)}"
+entrada = " int a; int resta(int a, int b){ return a - b; } int main(){ int a; int b; a = 8; b = 4; b = resta(a, b); print(b) }"
 
 entrada = entrada.split()
 entrada.append("$")
