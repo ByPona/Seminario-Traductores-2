@@ -24,3 +24,6 @@ Despues de que nuestra cadena paso todas las pruebas veremos el codigo en ensamb
 ![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Codigo%20-%20Ensamblador.png)
 ![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Codigo%20-%20Ensamblador2.png)
 
+Nos colocamos en la carpeta desde nuestra terminal y ejecutamos el archivo.asm
+![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Resultado.png)
+
