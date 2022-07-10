@@ -5,7 +5,7 @@ Version de Python 3.10
 
 Primero ingresamos la cadena para usarla con el analizador Lexico
 
-![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Cadena.png)f
+![Cadena](https://github.com/ByPona/Seminario-Traductores-2/blob/main/Cadena.png)
 
 Ahora nos mostrara la lista de los Terminales que nos genera el analizador Lexico
 
